@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@+id/viewpager1"
                     android:layout_alignBottom="@+id/viewpager1"
-                    android:layout_marginRight="16dp">
+                    >
 
 
                     <android.support.design.widget.TabLayout
