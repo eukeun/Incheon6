@@ -119,9 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         ArrayList<Integer> listImage1 = new ArrayList<>();
+        listImage1.add(R.drawable.kidsad6);
         listImage1.add(R.drawable.kidsad4);
-        listImage1.add(R.drawable.kidsad2);
-        listImage1.add(R.drawable.kidsad3);
+        listImage1.add(R.drawable.kidsad5);
+
 
 
 
