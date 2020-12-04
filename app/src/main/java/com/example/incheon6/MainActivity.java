@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imv = (ImageView) findViewById(R.id.btn1);
         imv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Map1.class);
                 startActivity(intent);
             }
