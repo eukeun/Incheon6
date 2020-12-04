@@ -110,10 +110,12 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager, true);
 
+
+        /*
         int dpValue = 16;
         float d = getResources().getDisplayMetrics().density;
         int margin = (int) (dpValue * d);
-
+        */
 
 
         ArrayList<Integer> listImage1 = new ArrayList<>();
@@ -127,10 +129,11 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.FragmentAdapter fragmentAdapter1 = new MainActivity.FragmentAdapter(getSupportFragmentManager());
         viewPager1.setAdapter(fragmentAdapter1);
 
+        /*
         viewPager1.setClipToPadding(false);
         viewPager1.setPadding(margin, 0, margin, 0);
         viewPager1.setPageMargin(margin / 2);
-
+        */
         for (int i = 0; i < listImage1.size(); i++) {
             ImageFragment imageFragment = new ImageFragment();
             Bundle bundle = new Bundle();
