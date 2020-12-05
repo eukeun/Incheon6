@@ -16,7 +16,7 @@
         <activity android:name=".Map3"/>
         <activity android:name=".Map2" />
         <activity android:name=".Map1" />
-        <activity android:name=".MapActivity" />
+        <activity android:name=".MapActivity2" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
