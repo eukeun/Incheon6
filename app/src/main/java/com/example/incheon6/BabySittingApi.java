@@ -13,7 +13,7 @@ public class BabySittingApi {
     public final static String URL = "https://openapi.gg.go.kr/ChildPlayFacility?";
     public final static String KEY = "accac320bac24f99ae1970142c825852";
 
-    TextView status1 = null;
+
 
     public BabySittingApi() {
         try {
@@ -26,7 +26,7 @@ public class BabySittingApi {
     public ArrayList<MapPoint> apiParserSearch() throws Exception {
 
 
-        java.net.URL url = new URL("https://openapi.gg.go.kr/ChildPlayFacility?KEY=accac320bac24f99ae1970142c825852&Type=xml&pIndex=1&pSize=1000");
+        java.net.URL url = new URL("https://openapi.gg.go.kr/ChildPlayFacility?KEY=accac320bac24f99ae1970142c825852&Type=xml&pIndex=1&pSize=100");
 
 
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
