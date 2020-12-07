@@ -35,6 +35,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.maps.android.clustering.ClusterManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class MapActivity2 extends AppCompatActivity
 
     private GoogleMap mMap;
     private Marker currentMarker = null;
+    private ClusterManager<MyItem> clusterManager;
 
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
@@ -180,6 +182,28 @@ public class MapActivity2 extends AppCompatActivity
             }
         });
 
+        clusterManager = new ClusterManager<>(this, mMap);
+        mMap.setOnCameraIdleListener(clusterManager);
+
+        BabySittingApi parser = new BabySittingApi();
+        ArrayList<MapPoint> mapPoint = new ArrayList<MapPoint>();
+
+        try {
+            mapPoint = parser.apiParserSearch();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        for (MapPoint entity : mapPoint) {
+            MarkerOptions options = new MarkerOptions();
+            options.position(new LatLng(entity.getLat(), entity.getLon()));
+            options.title(entity.getName());
+            MyItem apiItem = new MyItem(entity.getLat(), entity.getLon(), entity.getName());
+            clusterManager.addItem(apiItem);
+            mMap.addMarker(options);
+        }
+
 
     }
 
@@ -210,41 +234,6 @@ public class MapActivity2 extends AppCompatActivity
                 setCurrentLocation(location, markerTitle, markerSnippet);
 
                 mCurrentLocation = location;
-
-                BabySittingApi parser = new BabySittingApi();
-                ArrayList<MapPoint> mapPoint = new ArrayList<MapPoint>();
-
-                try {
-                    mapPoint = parser.apiParserSearch();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
-                for (MapPoint entity : mapPoint) {
-                    MarkerOptions options = new MarkerOptions();
-                    options.position(new LatLng(entity.getLat(), entity.getLon()));
-                    options.title(entity.getName());
-
-                    Location targetLocation = new Location("");
-                    targetLocation.setLatitude(entity.getLat());
-                    targetLocation.setLongitude(entity.getLon());
-
-
-                    if (mCurrentLocation != null) {
-                        Log.d("notnull", "aaa");
-                        double distance = mCurrentLocation.distanceTo(targetLocation);
-                        if (distance <= 1000000000) {
-                            Log.d("aa", Double.toString(distance));
-                            mMap.addMarker(options);
-                        } else
-                            Log.d("aa", Double.toString(distance));
-                    }
-                    else
-                        Log.d("null", "aaa");
-
-
-                }
 
             }
 
@@ -322,14 +311,10 @@ public class MapActivity2 extends AppCompatActivity
 
 /*
     public String getCurrentAddress(LatLng latlng) {
-
         //지오코더... GPS를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-
         List<Address> addresses;
-
         try {
-
             addresses = geocoder.getFromLocation(
                     latlng.latitude,
                     latlng.longitude,
@@ -341,19 +326,14 @@ public class MapActivity2 extends AppCompatActivity
         } catch (IllegalArgumentException illegalArgumentException) {
             Toast.makeText(this, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
             return "잘못된 GPS 좌표";
-
         }
-
-
         if (addresses == null || addresses.size() == 0) {
             Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
             return "주소 미발견";
-
         } else {
             Address address = addresses.get(0);
             return address.getAddressLine(0).toString();
         }
-
     }
     */
 
