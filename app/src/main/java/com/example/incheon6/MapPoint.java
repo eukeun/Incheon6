@@ -1,6 +1,8 @@
 package com.example.incheon6;
 
-public class MapPoint {
+import java.io.Serializable;
+
+public class MapPoint implements Serializable {
     private String name;
     private double lat;
     private double lon;

@@ -30,38 +30,48 @@
                     android:background="#FFFFFF"
                     android:minHeight="?attr/actionBarSize" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="@font/thejung150"
-                    android:text="이름 뭐로 하지"
-                    android:textColor="#000000"
-                    android:textSize="19dp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/appname" />
             </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="?attr/actionBarSize">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/bmdohyeon"
+                        android:hint="   내 주소" />
+                    <Button
+                        android:visibility="invisible"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_alignParentRight="true" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="내 위치 찾기" />
-
-                <TextView
-                    android:id="@+id/textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="   내 주소" />
-            </LinearLayout>
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F9F9F9"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="#F9F9F9">
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewpager1"
@@ -72,8 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@+id/viewpager1"
-                    android:layout_alignBottom="@+id/viewpager1"
-                    >
+                    android:layout_alignBottom="@+id/viewpager1">
 
 
                     <com.google.android.material.tabs.TabLayout
@@ -128,7 +137,7 @@
                             android:layout_below="@id/btn1"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text="어린이집"
                             android:textColor="#000000" />
                     </RelativeLayout>
@@ -156,7 +165,7 @@
                             android:layout_below="@id/btn2"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text="아이돌봄"
                             android:textColor="#000000" />
                     </RelativeLayout>
@@ -184,7 +193,7 @@
                             android:layout_below="@id/btn3"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text="　병원　"
                             android:textColor="#000000" />
                     </RelativeLayout>
@@ -212,7 +221,7 @@
                             android:layout_below="@id/btn4"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text="　약국　"
                             android:textColor="#000000" />
                     </RelativeLayout>
@@ -251,8 +260,8 @@
                             android:layout_below="@id/btn5"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
-                            android:text="어린이공원"
+                            android:fontFamily="@font/bmdohyeon"
+                            android:text=" 놀이시설 "
                             android:textColor="#000000" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -279,7 +288,7 @@
                             android:layout_below="@id/btn6"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text="아동상담소"
                             android:textColor="#000000" />
                     </RelativeLayout>
@@ -307,7 +316,7 @@
                             android:layout_below="@id/btn7"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
+                            android:fontFamily="@font/bmdohyeon"
                             android:text=" 추가예정 " />
                     </RelativeLayout>
                 </LinearLayout>
@@ -334,8 +343,8 @@
                             android:layout_below="@id/btn8"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/thejung150"
-                            android:text=" 추가예정 "/>
+                            android:fontFamily="@font/bmdohyeon"
+                            android:text=" 추가예정 " />
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
